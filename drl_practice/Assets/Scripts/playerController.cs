@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
 
-    public static float speed = 20;
+    public static float speed = 5f;
     Vector2 movementSpeed = new Vector2(speed,speed);
     Vector3 movement;
     ScoreManager c_sm;
@@ -32,14 +32,18 @@ public class PlayerController : MonoBehaviour
 
         movement = new Vector3(movementSpeed.x * inputX, movementSpeed.y * inputY, 0);
         movement *= Time.deltaTime;
-    }
-
-    private void FixedUpdate() {
+        
         transform.Translate(movement);
     }
+
     private void OnTriggerEnter2D(Collider2D other){
         if(other.tag=="Coin"){
             c_sm.AddScore();
+            GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+
+            foreach(GameObject c in coins){
+                Destroy(c);
+            }
             
         }
     }

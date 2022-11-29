@@ -15,7 +15,7 @@ TagManager:
   - UI
   - 
   - Interactables
-  - Tiles
+  - 
   - 
   - 
   - 
@@ -42,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3737220469
+    locked: 0
+  - name: Coins
+    uniqueID: 1230856111
+    locked: 0
+  - name: Block
+    uniqueID: 4203072033
+    locked: 0
+  - name: Finish
+    uniqueID: 3269503369
     locked: 0
