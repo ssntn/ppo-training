@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class scoreManager : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI score_t;
-    public int score = 0;
+    public int score;
 
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
         score_t.text = "Points: "+score.ToString();
     }
 
@@ -18,5 +19,10 @@ public class scoreManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddScore(){
+        score++;
+        score_t.text = "Points: "+score.ToString();
     }
 }

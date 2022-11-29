@@ -1,16 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+
     public static float speed = 20;
     Vector2 movementSpeed = new Vector2(speed,speed);
     Vector3 movement;
+    ScoreManager c_sm;
+    public GameObject canvasGO;
+    
+    void Awake() {
+          
+    }
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
+        c_sm = canvasGO.GetComponent<ScoreManager>();
         
     }
 
@@ -25,7 +35,14 @@ public class playerController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-    
         transform.Translate(movement);
     }
+    private void OnTriggerEnter2D(Collider2D other){
+        if(other.tag=="Coin"){
+            c_sm.AddScore();
+            
+        }
+    }
+    
+
 }
