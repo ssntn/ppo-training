@@ -7,10 +7,6 @@ public class CoinSpawner : MonoBehaviour
     [SerializeField]
     private GameObject coinPrefab;
 
-    [SerializeField]
-    private GameObject player;
-    PlayerController playerScript;
-
     private GameObject coin;
     CoinController coinScript;
 
@@ -36,13 +32,18 @@ public class CoinSpawner : MonoBehaviour
         horizontalMin = -halfWidth;
         horizontalMax = halfWidth;
         
-        if(player==null) player=GameObject.Find("Player");
-        playerScript = player.GetComponent<PlayerController>();
 
-        if(coin==null) coin=GameObject.Find("Coin");
+        if(coin==null) {
+
+            coin=GameObject.Find("Coin");
+            if(coin==null) {
+                Spawn();
+                coin=GameObject.Find("Coin");
+            }
+        }
         coinScript = coin.GetComponent<CoinController>();
 
-
+        
     }
 
     public void Spawn(){
