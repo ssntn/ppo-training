@@ -7,15 +7,28 @@ public class CoinSpawner : MonoBehaviour
     [SerializeField]
     private GameObject coinPrefab;
 
+    [SerializeField]
+    private GameObject player;
+    PlayerController playerScript;
+
+    private GameObject coin;
+    CoinController coinScript;
+
+
     static Camera camera;
     static float halfHeight;
     static float halfWidth;
 
     float horizontalMin;
     float horizontalMax;
-    // Start is called before the first frame update
+
+    private bool destroyable = false;
+    
     void Start()
     {
+        if(GameObject.Find("Coin"))
+            Destroy(GameObject.Find("CoinPrefab"));
+
         camera = Camera.main;
         halfHeight = camera.orthographicSize;
         halfWidth = camera.aspect * halfHeight;
@@ -23,16 +36,30 @@ public class CoinSpawner : MonoBehaviour
         horizontalMin = -halfWidth;
         horizontalMax = halfWidth;
         
+        if(player==null) player=GameObject.Find("Player");
+        playerScript = player.GetComponent<PlayerController>();
+
+        if(coin==null) coin=GameObject.Find("Coin");
+        coinScript = coin.GetComponent<CoinController>();
+
 
     }
-    // Update is called once per frame
-    void Update()
-    {
+
+    public void Spawn(){
         
-    }
+        if(gameObject == null) {
+            Debug.Log("unbreakable");
+            return;
+        }        
+        
+        GameObject newCoin;
+        newCoin = Instantiate(coinPrefab,
+            new Vector3(0, 0, 0),
+            Quaternion.identity
+        );
+        
+        newCoin.name = "Coin";
+        destroyable = false;
 
-    void OnDestroy() {
-        Debug.Log("spawn coin");    
-        Instantiate(coinPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }

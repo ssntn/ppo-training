@@ -13,20 +13,21 @@ public class PlayerController : MonoBehaviour
     ScoreManager c_sm;
     public GameObject canvasGO;
     
-    void Awake() {
-          
-    }
+    private CoinSpawner spawnerScr;
+    public GameObject spawner;
+   
 
     // Start is called before the first frame update
     void Start()
     {        
         c_sm = canvasGO.GetComponent<ScoreManager>();
+        spawnerScr = spawner.GetComponent<CoinSpawner>();
         
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // MOVEMENT
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
 
@@ -39,13 +40,19 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other){
         if(other.tag=="Coin"){
             c_sm.AddScore();
-            GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+            Destroy(other.gameObject);
 
-            foreach(GameObject c in coins){
-                Destroy(c);
-            }
-            
+            Invoke("reCoin", 2.0f);
         }
+    }
+
+    public void setCoins(GameObject coinGO){
+        // this.coinGO = coinGO;
+        // coin = this.coinGO.GetComponent<CoinController>();
+    }
+
+    private void reCoin(){
+        spawnerScr.Spawn();
     }
     
 
