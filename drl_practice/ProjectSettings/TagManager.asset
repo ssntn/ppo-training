@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Canvas
+  - Block
   layers:
   - Default
   - TransparentFX
