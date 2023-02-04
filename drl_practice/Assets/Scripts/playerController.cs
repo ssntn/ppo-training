@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float speed;
     private Vector2 movementSpeed;
     private Vector3 movement;
+    Vector3 posCam;
 
     private float inputX;
     private float inputY;
@@ -32,6 +33,11 @@ public class PlayerController : MonoBehaviour
 
         movement = new Vector3(movementSpeed.x * inputX, movementSpeed.y * inputY, 0);
         transform.Translate(movement*Time.deltaTime);
+
+       posCam = Camera.main.WorldToViewportPoint(transform.position);
+       if (posCam.x < 0f || posCam.x > 1f || posCam.y < 0f || posCam.y > 1f)
+            s_player = STATE.BLOCKED;
+
     }
 
 
