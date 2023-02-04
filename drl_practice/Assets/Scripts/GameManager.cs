@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (p.P_PS == PlayerController.STATE.COINED) NewScore();
-
+        if (p.P_PS == PlayerController.STATE.BLOCKED) RestartScore();
     }
 
     private void NewPos(GameObject go){
@@ -49,14 +49,20 @@ public class GameManager : MonoBehaviour
 
         do { pos  = RandomPos(); }
         while(Physics2D.OverlapBox(pos, box.size, 0f, coin.layer) != null);
-
         go.transform.position = pos;
     }
 
     private void NewScore(){
         c_sm.AddScore();
-        p.P_PS = PlayerController.STATE.ACTIVE;
         NewPos(coin);
+        p.P_PS = PlayerController.STATE.ACTIVE;
+    }
+
+    private void RestartScore()
+    {
+        c_sm.ResetScore();
+        NewPos(player);
+        p.P_PS = PlayerController.STATE.ACTIVE;
     }
 
     private void CameraSetup()

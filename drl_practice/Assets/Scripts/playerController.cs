@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementSpeed;
     private Vector3 movement;
 
+    private float inputX;
+    private float inputY;
+
     public enum STATE { ACTIVE, COINED, BLOCKED }
     private STATE s_player;
     public STATE P_PS { get { return s_player; } set { s_player = value; } }
@@ -24,17 +27,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // MOVEMENT
-        float inputX = Input.GetAxisRaw("Horizontal");
-        float inputY = Input.GetAxisRaw("Vertical");
+        inputX = Input.GetAxisRaw("Horizontal");
+        inputY = Input.GetAxisRaw("Vertical");
 
         movement = new Vector3(movementSpeed.x * inputX, movementSpeed.y * inputY, 0);
         transform.Translate(movement*Time.deltaTime);
     }
 
+
+
     private void OnTriggerEnter2D(Collider2D other){
         if (other.tag == "Coin") s_player = STATE.COINED;
-        
+        if (other.tag == "Block") s_player = STATE.BLOCKED;
     }
 
 

@@ -9,21 +9,25 @@ public class ScoreManager : MonoBehaviour
     private int score;
     public int p_score {set {AddScore();}}
 
-    // Start is called before the first frame update
     void Start()
     {
-        score = 0;
-        score_t.text = "Points: "+score.ToString();
+        ResetScore();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update(){}
 
     public void AddScore(){
         score++;
-        score_t.text = "Points: "+score.ToString();
+        SetScoreText(score);
+    }
+    public void ResetScore()
+    {
+        score = 0;
+        SetScoreText(score);
+    }
+
+    private void SetScoreText(int score)
+    {
+        score_t.text = "Points: " + score.ToString();
     }
 }
