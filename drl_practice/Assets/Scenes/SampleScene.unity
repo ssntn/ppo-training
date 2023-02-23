@@ -154,6 +154,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!4 &137151788 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8875979738400597627, guid: 77a3cefaf47cdb2438ace950acfda7b6, type: 3}
+  m_PrefabInstance: {fileID: 902952822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &228314149
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1499746853388043041, guid: 77a3cefaf47cdb2438ace950acfda7b6, type: 3}
+      propertyPath: o_gm
+      value: 
+      objectReference: {fileID: 641270915}
     - target: {fileID: 8875979738400597618, guid: 77a3cefaf47cdb2438ace950acfda7b6, type: 3}
       propertyPath: m_Name
       value: Coin
@@ -677,7 +686,7 @@ GameObject:
   - component: {fileID: 2077723213}
   m_Layer: 6
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1351,6 +1360,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6074269243758684381, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 641270916}
+    - target: {fileID: 6074269243758684381, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: coin
+      value: 
+      objectReference: {fileID: 137151788}
     - target: {fileID: 6318182735574469889, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
       propertyPath: spawner
       value: 
@@ -1365,11 +1382,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6318182735574469893, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -3.21
       objectReference: {fileID: 0}
     - target: {fileID: 6318182735574469893, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 6318182735574469893, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1414,6 +1431,38 @@ PrefabInstance:
     - target: {fileID: 6318182735574469895, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: m_BehaviorType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSpaceType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}

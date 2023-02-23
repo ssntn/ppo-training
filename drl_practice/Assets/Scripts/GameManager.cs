@@ -40,13 +40,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (p.P_PS == PlayerController.STATE.COINED) NewScore();
-        if (p.P_PS == PlayerController.STATE.BLOCKED) RestartScore();
+        //if (p.P_PS == PlayerController.STATE.COINED) NewScore();
+        //if (p.P_PS == PlayerController.STATE.BLOCKED) RestartScore();
     }
 
     private void NewPos(GameObject go){
         Vector3 pos;
-
         do { pos  = RandomPos(); }
         while(Physics2D.OverlapBox(pos, box.size, 0f, coin.layer) != null);
         go.transform.position = pos;
@@ -77,7 +76,7 @@ public class GameManager : MonoBehaviour
         verticalMax = halfHeight - borderSize;
     }
 
-    private Vector3 RandomPos()
+    public Vector3 RandomPos()
     {
         return new Vector3(
             Random.Range(horizontalMin, horizontalMax),
