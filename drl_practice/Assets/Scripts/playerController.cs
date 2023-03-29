@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour
    public void Move(float inputX, float inputY)
     {
         movement = new Vector3(movementSpeed.x * inputX, movementSpeed.y * inputY, 0);
-        transform.Translate(movement * Time.deltaTime);
+        // transform.Translate(movement * Time.deltaTime);
+        transform.localPosition += new Vector3(inputX, inputY, 0) * Time.deltaTime * speed;
     }
 
 

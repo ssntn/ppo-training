@@ -29,22 +29,22 @@ public class MoveBrain : Agent
 
     public override void OnEpisodeBegin()
     {
-        transform.position = gm.RandomPos();
-        gm.CoinRandomPos();
-        timeElapsed = 0.0f;
+        transform.localPosition = gm.RandomPos();
+        coin.localPosition = gm.RandomPos();
+        timeElapsed = 0.0f;   
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.position);
-        sensor.AddObservation(coin.position);
+        sensor.AddObservation(transform.localPosition);
+        sensor.AddObservation(coin.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
         inputX = actions.ContinuousActions[0];
         inputY = actions.ContinuousActions[1];
-        
+
         p.Move(inputX, inputY);
 
         AddReward(-0.1f);
