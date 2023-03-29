@@ -85,4 +85,8 @@ public class GameManager : MonoBehaviour
         );
     }
 
+    public void CoinRandomPos(){
+        NewPos(coin);
+    }
+
 }

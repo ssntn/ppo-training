@@ -1437,6 +1437,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: m_ObservableAttributeHandling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411493526512454542, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
       propertyPath: m_BrainParameters.VectorActionSpaceType
       value: 1
       objectReference: {fileID: 0}
