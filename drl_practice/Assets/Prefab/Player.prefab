@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  bullet: {fileID: 8925860199037979658, guid: 24068622a8f48ec49806812c0bda138d, type: 3}
 --- !u!114 &7411493526512454542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,18 +164,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 1
+    VectorObservationSize: 8
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 05000000
-    VectorActionSize: 05000000
+      m_NumContinuousActions: 8
+      BranchSizes: 
+    VectorActionSize: 08000000
     VectorActionDescriptions: []
-    VectorActionSpaceType: 0
+    VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 1
-  m_BehaviorType: 0
+  m_BehaviorType: 1
   m_BehaviorName: Move
   TeamId: 0
   m_UseChildSensors: 1
@@ -196,6 +197,8 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  coin: {fileID: 8875979738400597627, guid: 77a3cefaf47cdb2438ace950acfda7b6, type: 3}
+  episodeTimeLimit: 30
 --- !u!114 &5454729989640102856
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1172,6 +1172,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6114022774109006357}
     - target: {fileID: 6318182735574469889, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318182735574469889, guid: 17a68427946945b409cf58e96ff4bd6c, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 0}
