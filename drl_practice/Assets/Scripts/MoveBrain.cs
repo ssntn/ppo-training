@@ -30,6 +30,7 @@ public class MoveBrain : Agent
 
     public override void OnEpisodeBegin()
     {
+        BulletPool.SharedInstance.DisableAllBullets();
         transform.localPosition = GameManager.instance.RandomPos();
         coin.localPosition = GameManager.instance.RandomPos();
         TimeElapsed = 0.0f;   
@@ -91,14 +92,11 @@ public class MoveBrain : Agent
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Coin")
-        {
-            SetReward(5f);
-        }else if (other.tag == "Block")
-        {
-            SetReward(-1f);
-        }
+        if(other.CompareTag("Safe")) return;
 
+        if (other.tag == "Coin") SetReward(5f);
+        else if (other.tag == "Block") SetReward(-1f);
+        
         EndEpisode();
     }
 
@@ -106,4 +104,5 @@ public class MoveBrain : Agent
         SetReward(8f);
         EndEpisode();
     }
+
 }

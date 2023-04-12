@@ -10,7 +10,11 @@ public class PlayerController : MonoBehaviour
     private float speed;
 
     [SerializeField]
-    private GameObject bullet;
+    private GameObject bulletPrefab;
+    
+
+    [SerializeField]
+    private float bulletThrust;
 
     private Vector2 movementSpeed;
     private Vector3 movement;
@@ -25,6 +29,7 @@ public class PlayerController : MonoBehaviour
       s_player =  STATE.ACTIVE;
       speed = 4f;
       movementSpeed = new Vector2(speed,speed);
+      bulletThrust = 5f;
     }
 
     void Update()
@@ -48,13 +53,30 @@ public class PlayerController : MonoBehaviour
     public void Shoot(float angle){
 
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 dis = new Vector2(
+                mousePos.x - transform.position.x,
+                mousePos.y - transform.position.y
+            );
         
         angle = Mathf.Atan2(
             mousePos.y - transform.position.y,
             mousePos.x - transform.position.x
         ) * Mathf.Rad2Deg;
 
-        Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, angle));
+        // GameObject bullet = Instantiate(
+        //     bulletPrefab, transform.position, 
+        //     Quaternion.Euler(0f, 0f, angle - 90f));
+
+        GameObject bullet = BulletPool.SharedInstance.GetBullet();
+        
+        bullet.transform.position = gameObject.transform.position;
+        bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+        bullet.SetActive(true);
+        
+
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(dis.normalized * bulletThrust, ForceMode2D.Impulse);
     }
+
 
 }

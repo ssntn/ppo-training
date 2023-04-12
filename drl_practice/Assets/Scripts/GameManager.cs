@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     [SerializeField]
     public GameObject canvasGO;
     ScoreManager c_sm;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     static Camera m_camera;
     static float halfHeight;
     static float halfWidth;
+    public GameObject Player { get { return player; }}
 
     public static GameManager instance;
 
