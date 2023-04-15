@@ -36,7 +36,6 @@ public class BulletPool : MonoBehaviour
     public GameObject GetBullet(){
         for(int i = 0; i < poolSize; i++){
             
-            Debug.Log("bang");
             if(pooledObjects[i] == null) continue;
             if(!pooledObjects[i].activeInHierarchy) 
                 return pooledObjects[i];
